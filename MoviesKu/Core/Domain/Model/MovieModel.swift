@@ -7,7 +7,7 @@
 
 //import Foundation
 
-struct MovieModel: Equatable, Identifiable {
+struct MovieModel {
     let id: Int
     let title: String
     let image: String

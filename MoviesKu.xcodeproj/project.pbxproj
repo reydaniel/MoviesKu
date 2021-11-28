@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		430AAE19274FD7AE00305229 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430AAE18274FD7AE00305229 /* FavoriteViewController.swift */; };
+		430AAE1B274FD81E00305229 /* FavoriteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430AAE1A274FD81E00305229 /* FavoriteNavigationController.swift */; };
 		433FDD40274E372600E5F866 /* NowPlayingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433FDD3E274E372600E5F866 /* NowPlayingViewCell.swift */; };
 		433FDD41274E372600E5F866 /* NowPlayingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 433FDD3F274E372600E5F866 /* NowPlayingViewCell.xib */; };
 		433FDD45274E4B4200E5F866 /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433FDD44274E4B4200E5F866 /* TabBarRouter.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		430AAE18274FD7AE00305229 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		430AAE1A274FD81E00305229 /* FavoriteNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNavigationController.swift; sourceTree = "<group>"; };
 		433FDD3E274E372600E5F866 /* NowPlayingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewCell.swift; sourceTree = "<group>"; };
 		433FDD3F274E372600E5F866 /* NowPlayingViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NowPlayingViewCell.xib; sourceTree = "<group>"; };
 		433FDD44274E4B4200E5F866 /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
@@ -83,6 +87,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		430AAE16274FD6D900305229 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		430AAE17274FD6E200305229 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				430AAE18274FD7AE00305229 /* FavoriteViewController.swift */,
+				430AAE1A274FD81E00305229 /* FavoriteNavigationController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		433FDD43274E4B2B00E5F866 /* Tab Bar Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +166,8 @@
 		43B5CF4F274B773200E419DC /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				430AAE16274FD6D900305229 /* Presenter */,
+				430AAE17274FD6E200305229 /* View */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -390,9 +412,11 @@
 				43B5CF57274BE85900E419DC /* HomePresenter.swift in Sources */,
 				433FDD47274E59FE00E5F866 /* HomeNavigationController.swift in Sources */,
 				43A74F192748F08300E52D33 /* RemoteDataSource.swift in Sources */,
+				430AAE1B274FD81E00305229 /* FavoriteNavigationController.swift in Sources */,
 				43A74F2127493DD300E52D33 /* MovieMapper.swift in Sources */,
 				433FDD49274E5DF000E5F866 /* TabBarViewController.swift in Sources */,
 				43C549BD2746A74B00C3E95D /* ViewController.swift in Sources */,
+				430AAE19274FD7AE00305229 /* FavoriteViewController.swift in Sources */,
 				43A74F1E27492EA000E52D33 /* MoviesRepository.swift in Sources */,
 				43C549B92746A74B00C3E95D /* AppDelegate.swift in Sources */,
 				43A74F152748EC7500E52D33 /* MoviesResponse.swift in Sources */,

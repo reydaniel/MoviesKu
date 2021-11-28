@@ -33,7 +33,7 @@ final class MoviesRepository: NSObject {
 extension MoviesRepository: MoviesRepositoryProtocol {
     func getMovies() -> AnyPublisher<[MovieModel], Error> {
         return self.remote.getMovies()
-            .map { MovieMappper.mapMovieResponseToDomain(input: $0) }
+            .map { MovieMappper.mapMovieResponseToDomain(input: $0)}
             .eraseToAnyPublisher()
     }
     

@@ -20,15 +20,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNE-bP-mh6">
                         <rect key="frame" x="0.0" y="0.0" width="251" height="319"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="awF-bp-4za">
-                                <rect key="frame" x="8" y="8" width="235" height="50"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="awF-bp-4za">
+                                <rect key="frame" x="8" y="8" width="235" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="aDa-FK-H27"/>
+                                    <constraint firstAttribute="height" constant="200" id="aDa-FK-H27"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grc-Tq-GRC">
-                                <rect key="frame" x="8" y="74" width="235" height="229"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <rect key="frame" x="8" y="224" width="235" height="79"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="cZz-v2-Y1P"/>
+                                    <constraint firstAttribute="width" constant="235" id="oLb-cl-h4M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

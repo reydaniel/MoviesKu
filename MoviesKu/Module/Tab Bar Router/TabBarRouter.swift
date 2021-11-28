@@ -31,11 +31,27 @@ class TabBarRouter {
         return homeNC
     }
     
+    func makeFavoriteView() -> UIViewController {
+        guard let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as? FavoriteViewController else {
+            return UIViewController()
+        }
+//        favoriteVC.presenter = HomePresenter(homeUseCase: Injection.init().provideHome())
+        return favoriteVC
+    }
+    
+    func makeFavoriteNavigation() -> UINavigationController {
+        guard let favoriteNC = storyboard.instantiateViewController(withIdentifier: "FavoriteNavigationController") as? FavoriteNavigationController else {
+            return UINavigationController()
+        }
+        favoriteNC.viewControllers = [makeFavoriteView()]
+        return favoriteNC
+    }
+    
     func makeTabBar() -> TabBarViewController {
         guard let tabBarVC = storyboard.instantiateViewController(withIdentifier: "tabbar") as? TabBarViewController else {
             return TabBarViewController()
         }
-        tabBarVC.viewControllers = [makeHomeNavigation()]
+        tabBarVC.viewControllers = [makeHomeNavigation(), makeFavoriteNavigation()]
         return tabBarVC
     }
     

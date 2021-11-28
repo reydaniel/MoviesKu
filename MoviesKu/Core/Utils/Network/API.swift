@@ -9,6 +9,7 @@ import Foundation
 
 struct API {
     static let url = "https://api.themoviedb.org/3/movie/"
+    static let imageURL = "https://image.tmdb.org/t/p/original"
     static let key = "12a7ddaa1ce899dc8acece5699a6601c"
 }
 
@@ -22,6 +23,7 @@ enum Endpoints {
         case list
         case search(movie: String)
         case detail(id: Int)
+        case getImageURL(url: String)
         
         public var url: String {
             switch self {
@@ -33,6 +35,8 @@ enum Endpoints {
                 return "\(API.url)search/movie?api_key=\(API.key)&query=\(movie)"
             case .detail(let id):
                 return "\(API.url)\(id)?api_key=\(API.key)"
+            case .getImageURL(url: let url):
+                return "\(API.imageURL)\(url)"
             }
         }
     }
