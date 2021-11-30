@@ -10,6 +10,7 @@ import Combine
 
 protocol HomeUseCase {
     func getMovies() -> AnyPublisher<[MovieModel], Error>
+    func getNowPlaying() -> AnyPublisher<[MovieModel], Error>
 }
 
 class HomeInteractor: HomeUseCase {
@@ -21,5 +22,9 @@ class HomeInteractor: HomeUseCase {
     
     func getMovies() -> AnyPublisher<[MovieModel], Error> {
         return repository.getMovies()
+    }
+    
+    func getNowPlaying() -> AnyPublisher<[MovieModel], Error> {
+        return repository.getNowPlaying()
     }
 }

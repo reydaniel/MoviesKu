@@ -12,6 +12,7 @@ import RealmSwift
 protocol LocalDataSourceProtocol {
     func getMovies() -> AnyPublisher<[MovieEntity], Error>
     func addMovies(from movie: [MovieEntity]) -> AnyPublisher<Bool, Error>
+    func getDetail(id: Int) -> AnyPublisher<MovieEntity, Error>
 }
 
 final class LocalDataSource: NSObject {
@@ -58,6 +59,23 @@ extension LocalDataSource: LocalDataSourceProtocol {
                 completion(.failure(DatabaseError.invalidInstance))
             }
         }.eraseToAnyPublisher()
+    }
+    
+    func getDetail(id: Int) -> AnyPublisher<MovieEntity, Error> {
+        return Future<MovieEntity, Error> { completion in
+            if let realm = self.realm {
+                let movies: Results<MovieEntity> = {
+                    realm.objects(MovieEntity.self)
+                        .filter("id == \(id)")
+                }()
+                guard let item = movies.first else { return }
+                
+                completion(.success(item))
+            } else {
+                completion(.failure(DatabaseError.invalidInstance))
+            }
+        }
+        .eraseToAnyPublisher()
     }
 }
 

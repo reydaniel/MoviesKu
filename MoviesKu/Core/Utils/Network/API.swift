@@ -8,7 +8,7 @@
 import Foundation
 
 struct API {
-    static let url = "https://api.themoviedb.org/3/movie/"
+    static let url = "https://api.themoviedb.org/3/"
     static let imageURL = "https://image.tmdb.org/t/p/original"
     static let key = "12a7ddaa1ce899dc8acece5699a6601c"
 }
@@ -28,9 +28,9 @@ enum Endpoints {
         public var url: String {
             switch self {
             case .nowPlaying:
-                return "\(API.url)now_playing?api_key=\(API.key)"
+                return "\(API.url)trending/movie/day?api_key=\(API.key)"
             case .list:
-                return "\(API.url)popular?api_key=\(API.key)"
+                return "\(API.url)movie/popular?api_key=\(API.key)"
             case .search(let movie):
                 return "\(API.url)search/movie?api_key=\(API.key)&query=\(movie)"
             case .detail(let id):

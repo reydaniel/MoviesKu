@@ -12,6 +12,7 @@ protocol MoviesRepositoryProtocol {
     func getMovies() -> AnyPublisher<[MovieModel], Error>
     func getNowPlaying() -> AnyPublisher<[MovieModel], Error>
     func searchMovie(name: String) -> AnyPublisher<[MovieModel], Error>
+    func getDetail(id: Int) -> AnyPublisher<DetailModel, Error>
 }
 
 final class MoviesRepository: NSObject {
@@ -49,5 +50,20 @@ extension MoviesRepository: MoviesRepositoryProtocol {
             .eraseToAnyPublisher()
     }
     
+    func getDetail(id: Int) -> AnyPublisher<DetailModel, Error> {
+        return self.local.getDetail(id: id)
+            .flatMap { result -> AnyPublisher<DetailModel, Error> in
+                if result.id != id {
+                    return self.remote.getMovieDetail(id: id)
+                        .map { MovieMappper.mapDetailResponseToDomain(input: $0)}
+                        .eraseToAnyPublisher()
+                } else {
+                    return self.local.getDetail(id: id)
+                        .map { MovieMappper.mapDetailEntityToDomain(input: $0)}
+                        .eraseToAnyPublisher()
+                }
+            }
+            .eraseToAnyPublisher()
+    }
     
 }

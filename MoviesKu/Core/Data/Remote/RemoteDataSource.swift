@@ -12,7 +12,7 @@ import Combine
 protocol RemoteDataSourceProtocol: AnyObject {
     func getMovies() -> AnyPublisher<[MoviesList], Error>
     func getNowPlaying() -> AnyPublisher<[MoviesList], Error>
-//    func getMovieDetail(id: Int) -> AnyPublisher<[MoviesDetailResponse], Error>
+    func getMovieDetail(id: Int) -> AnyPublisher<DetailResponse, Error>
     func searchMovie(name: String) -> AnyPublisher<[MoviesList], Error>
 }
 
@@ -74,5 +74,21 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
         }.eraseToAnyPublisher()
     }
     
+    func getMovieDetail(id: Int) -> AnyPublisher<DetailResponse, Error> {
+        return Future<DetailResponse, Error> { completion in
+            if let url = URL(string: Endpoints.Gets.detail(id: id).url) {
+                AF.request(url)
+                    .validate()
+                    .responseDecodable(of: DetailResponse.self) { response in
+                        switch response.result {
+                        case .success(let value):
+                            completion(.success(value))
+                        case .failure:
+                            completion(.failure(URLError.invalidResponse))
+                        }
+                    }
+            }
+        }.eraseToAnyPublisher()
+    }
     
 }
