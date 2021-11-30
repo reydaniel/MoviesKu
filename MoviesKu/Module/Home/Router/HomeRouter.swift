@@ -9,14 +9,13 @@ import Foundation
 import UIKit
 
 class HomeRouter {
-//    private let storyboard: UIStoryboard
-//
-//    required init() {
-//        self.storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
-//    }
+    private let storyboard: UIStoryboard
+
+    required init() {
+        self.storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
+    }
     
     func makeDetail() -> UIViewController {
-        let storyboard = UIStoryboard(name: "DetailViewController", bundle: nil)
         guard let detailVC = storyboard.instantiateInitialViewController() as? DetailViewController else {
             return UIViewController()
         }
