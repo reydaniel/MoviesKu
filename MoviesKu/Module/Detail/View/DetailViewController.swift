@@ -37,6 +37,7 @@ class DetailViewController: UIViewController {
                 switch completion {
                 case .failure:
                     self.errorMessage = String(describing: completion)
+                    print("fail")
                 case .finished:
                     self.loadingState = false
                 }

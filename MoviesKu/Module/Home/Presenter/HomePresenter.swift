@@ -10,7 +10,8 @@ import Combine
 
 class HomePresenter {
     private let homeUseCase: HomeUseCase
-    
+    var router: HomeRouter?
+
     init(homeUseCase: HomeUseCase) {
         self.homeUseCase = homeUseCase
     }

@@ -10,6 +10,8 @@ import Combine
 
 class DetailPresenter {
     private let detailUseCase: DetailUseCase
+    var detailView: DetailViewController?
+    var router: HomeRouter?
     
     init(detailUseCase: DetailUseCase) {
         self.detailUseCase = detailUseCase

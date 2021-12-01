@@ -35,7 +35,6 @@ class TabBarRouter {
         guard let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as? FavoriteViewController else {
             return UIViewController()
         }
-//        favoriteVC.presenter = HomePresenter(homeUseCase: Injection.init().provideHome())
         return favoriteVC
     }
     

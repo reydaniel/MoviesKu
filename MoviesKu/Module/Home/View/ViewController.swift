@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var popularTableView: UITableView!
     
     var presenter: HomePresenter?
-    var router: HomeRouter?
+    var router = HomeRouter()
     private var errorMessage: String = ""
     private var loadingState: Bool = false
     private var cancellables: Set<AnyCancellable> = []
@@ -57,11 +57,17 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let id = nowPlaying[indexPath.item].id
-        let appDetailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
-        appDetailVC.id = id
-        router?.makeDetail()
-        navigationController?.pushViewController(appDetailVC, animated: true)
+        performSegue(withIdentifier: "homeToDetail", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "homeToDetail" {
+            let destination = segue.destination as? DetailViewController
+            let row = (sender as? NSIndexPath)?.row
+            destination?.id = nowPlaying[row!].id
+            destination?.detailPresenter?.router = presenter?.router
+            destination?.detailPresenter = presenter?.router?.makeDetail()
+        }
     }
 
 }
