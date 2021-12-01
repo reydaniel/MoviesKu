@@ -34,7 +34,7 @@ enum Endpoints {
             case .search(let movie):
                 return "\(API.url)search/movie?api_key=\(API.key)&query=\(movie)"
             case .detail(let id):
-                return "\(API.url)\(id)?api_key=\(API.key)"
+                return "\(API.url)movie/\(id)?api_key=\(API.key)"
             case .getImageURL(url: let url):
                 return "\(API.imageURL)\(url)"
             }

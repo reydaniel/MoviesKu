@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 class HomeRouter {
-    func makeDetail() -> DetailPresenter {
-        let detailUseCase = Injection.init().provideDetail()
+    func makeDetail(id: Int) -> DetailPresenter {
+        let detailUseCase = Injection.init().provideDetail(by: id)
         let presenter = DetailPresenter(detailUseCase: detailUseCase)
-        
+        print("terpanggil")
         return presenter
     }
 }

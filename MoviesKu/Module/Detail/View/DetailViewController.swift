@@ -21,7 +21,7 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("id: \(id ?? 0)")
+//        print("id: \(id ?? 0)")
         getDetail()
         // Do any additional setup after loading the view.
     }
@@ -37,7 +37,6 @@ class DetailViewController: UIViewController {
                 switch completion {
                 case .failure:
                     self.errorMessage = String(describing: completion)
-                    print("fail")
                 case .finished:
                     self.loadingState = false
                 }

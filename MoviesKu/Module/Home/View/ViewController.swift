@@ -63,10 +63,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "homeToDetail" {
             let destination = segue.destination as? DetailViewController
-            let row = (sender as? NSIndexPath)?.row
-            destination?.id = nowPlaying[row!].id
-            destination?.detailPresenter?.router = presenter?.router
-            destination?.detailPresenter = presenter?.router?.makeDetail()
+            let row = (sender as! NSIndexPath).row
+            destination?.id = nowPlaying[row].id
+            destination?.detailPresenter?.router?.makeDetail(id: nowPlaying[row].id)
         }
     }
 

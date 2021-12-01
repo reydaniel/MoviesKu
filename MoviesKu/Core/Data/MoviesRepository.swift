@@ -53,7 +53,8 @@ extension MoviesRepository: MoviesRepositoryProtocol {
     func getDetail(id: Int) -> AnyPublisher<DetailModel, Error> {
         return self.local.getDetail(id: id)
             .flatMap { result -> AnyPublisher<DetailModel, Error> in
-                if result.id != id {
+                if id != result.id {
+                    print("belum ada")
                     return self.remote.getMovieDetail(id: id)
                         .map { MovieMappper.mapDetailResponseToDomain(input: $0)}
                         .eraseToAnyPublisher()

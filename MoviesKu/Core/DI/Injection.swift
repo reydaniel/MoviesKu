@@ -23,8 +23,8 @@ final class Injection: NSObject {
         return HomeInteractor(repository: repository)
     }
     
-    func provideDetail() -> DetailUseCase {
+    func provideDetail(by id: Int) -> DetailUseCase {
         let repository = provideRepository()
-        return DetailInteractor(repository: repository)
+        return DetailInteractor(by: id, repository: repository)
     }
 }
