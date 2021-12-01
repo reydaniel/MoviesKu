@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 class HomeRouter {
-    func makeDetail(id: Int) -> DetailPresenter {
-        let detailUseCase = Injection.init().provideDetail(by: id)
-        let presenter = DetailPresenter(detailUseCase: detailUseCase)
-        print("terpanggil")
-        return presenter
+    func makeDetail(id: Int?, navigationController: UINavigationController?) {
+        let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        detailVC.id = id
+        detailVC.detailPresenter = DetailPresenter(detailUseCase: Injection.init().provideDetail())
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 

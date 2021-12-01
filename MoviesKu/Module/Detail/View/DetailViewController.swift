@@ -2,16 +2,15 @@
 //  DetailViewController.swift
 //  MoviesKu
 //
-//  Created by ReyDaniel on 30/11/21.
+//  Created by ReyDaniel on 01/12/21.
 //
 
 import UIKit
 import Combine
 
 class DetailViewController: UIViewController {
-    
+
     var detailPresenter: DetailPresenter?
-    var homeRouter: HomeRouter?
     var id: Int?
     
     private var errorMessage: String = ""
@@ -21,24 +20,23 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print("id: \(id ?? 0)")
         getDetail()
         // Do any additional setup after loading the view.
     }
     
     func getDetail() {
-        guard let id = id else {
-            return
-        }
         loadingState = true
+        guard let id = id else { return }
         detailPresenter?.getDetail(id: id)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure:
                     self.errorMessage = String(describing: completion)
+                    print("fail")
                 case .finished:
                     self.loadingState = false
+                    print("succ")
                 }
             }, receiveValue: { result in
                 self.detail = result
@@ -46,6 +44,7 @@ class DetailViewController: UIViewController {
             })
             .store(in: &cancellables)
     }
+
 
 
     /*

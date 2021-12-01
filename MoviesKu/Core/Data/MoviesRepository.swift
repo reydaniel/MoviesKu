@@ -54,7 +54,6 @@ extension MoviesRepository: MoviesRepositoryProtocol {
         return self.local.getDetail(id: id)
             .flatMap { result -> AnyPublisher<DetailModel, Error> in
                 if id != result.id {
-                    print("belum ada")
                     return self.remote.getMovieDetail(id: id)
                         .map { MovieMappper.mapDetailResponseToDomain(input: $0)}
                         .eraseToAnyPublisher()

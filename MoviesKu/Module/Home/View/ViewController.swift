@@ -57,17 +57,17 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "homeToDetail", sender: indexPath)
+        let id = nowPlaying[indexPath.item].id
+        router.makeDetail(id: id, navigationController: navigationController)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "homeToDetail" {
-            let destination = segue.destination as? DetailViewController
-            let row = (sender as! NSIndexPath).row
-            destination?.id = nowPlaying[row].id
-            destination?.detailPresenter?.router?.makeDetail(id: nowPlaying[row].id)
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "homeToDetail" {
+//            let destination = segue.destination as? DetailViewController
+//            let row = (sender as! NSIndexPath).row
+//            destination?.id = nowPlaying[row].id
+//        }
+//    }
 
 }
 

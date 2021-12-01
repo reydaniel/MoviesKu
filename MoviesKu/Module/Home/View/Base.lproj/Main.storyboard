@@ -134,28 +134,11 @@
                     <connections>
                         <outlet property="nowPlayingCell" destination="F2X-Wm-P1a" id="10S-4b-Uoj"/>
                         <outlet property="popularTableView" destination="27r-IU-tgP" id="QLa-P1-2a8"/>
-                        <segue destination="jrh-vy-Drx" kind="show" identifier="homeToDetail" id="BdJ-zE-nx4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="26.785714285714285"/>
-        </scene>
-        <!--Detail View Controller-->
-        <scene sceneID="qu5-8X-K4Q">
-            <objects>
-                <viewController storyboardIdentifier="DetailView" id="jrh-vy-Drx" customClass="DetailViewController" customModule="MoviesKu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="M6V-1c-EtY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="nkL-J2-52V"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="gZx-Sb-mR0"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8iY-b1-Eay" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3197" y="27"/>
         </scene>
         <!--Favorite-->
         <scene sceneID="m7L-2I-Dpw">
