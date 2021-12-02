@@ -19,9 +19,11 @@ final class MovieMappper {
     
     static func mapDetailResponseToDomain(input detailResponse: DetailResponse) -> DetailModel {
         return DetailModel(id: detailResponse.id,
-                           title: detailResponse.title ?? "",
-                           image: detailResponse.image ?? "",
-                           average: detailResponse.average ?? 0.0)
+                           title: detailResponse.title ?? "No Title",
+                           image: detailResponse.image ?? "No Image",
+                           average: detailResponse.average ?? 0.0,
+                           overview: detailResponse.overview ?? "No Overview...",
+                           tagline: detailResponse.tagline ?? "No Tagline here")
     }
     
     static func mapDetailResponseToEntity(input movieResponse: DetailResponse) -> MovieEntity {
@@ -37,6 +39,8 @@ final class MovieMappper {
         return DetailModel(id: movieEntity.id,
                            title: movieEntity.title,
                            image: movieEntity.image,
-                           average: movieEntity.average)
+                           average: movieEntity.average,
+                           overview: movieEntity.overview,
+                           tagline: movieEntity.tagline)
     }
 }

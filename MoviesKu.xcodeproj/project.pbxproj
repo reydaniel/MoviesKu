@@ -46,6 +46,7 @@
 		43F6AA202756742100B132BF /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F6AA1F2756742100B132BF /* DetailPresenter.swift */; };
 		43FD287E2757748B00D4DD61 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FD287C2757748B00D4DD61 /* DetailViewController.swift */; };
 		43FD287F2757748B00D4DD61 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43FD287D2757748B00D4DD61 /* DetailViewController.xib */; };
+		43FD288227579A8D00D4DD61 /* BlurImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FD288127579A8D00D4DD61 /* BlurImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		43F6AA1F2756742100B132BF /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		43FD287C2757748B00D4DD61 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		43FD287D2757748B00D4DD61 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		43FD288127579A8D00D4DD61 /* BlurImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 		43C549CF2746A8D200C3E95D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				43FD288027579A7600D4DD61 /* View */,
 				43A74F1F27493DC400E52D33 /* Mapper */,
 				43A74F1A2748F3B700E52D33 /* Extensions */,
 				4384D4372747FF93002CA951 /* Network */,
@@ -375,6 +378,14 @@
 				43F6AA1F2756742100B132BF /* DetailPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		43FD288027579A7600D4DD61 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				43FD288127579A8D00D4DD61 /* BlurImageView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				433FDD45274E4B4200E5F866 /* TabBarRouter.swift in Sources */,
+				43FD288227579A8D00D4DD61 /* BlurImageView.swift in Sources */,
 				43F6AA092755B5EA00B132BF /* DetailInteractor.swift in Sources */,
 				43733E172753CFE000E8F7BA /* DetailModel.swift in Sources */,
 				43A74F2427493EEB00E52D33 /* MovieModel.swift in Sources */,

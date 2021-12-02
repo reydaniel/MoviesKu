@@ -12,9 +12,11 @@ struct DetailResponse: Decodable {
     let title: String?
     let image: String?
     let average: Double?
+    let tagline: String?
+    let overview: String?
     
     private enum CodingKeys: String, CodingKey {
-        case id,title
+        case id,title, tagline, overview
         case image = "poster_path"
         case average = "vote_average"
     }

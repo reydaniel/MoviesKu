@@ -14,10 +14,8 @@ protocol DetailUseCase {
 
 class DetailInteractor: DetailUseCase {
     private let repository: MoviesRepositoryProtocol
-//    private let id: Int
     
     required init(repository: MoviesRepositoryProtocol) {
-//        self.id = id
         self.repository = repository
     }
     

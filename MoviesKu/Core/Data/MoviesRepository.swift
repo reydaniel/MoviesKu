@@ -7,12 +7,14 @@
 
 import Foundation
 import Combine
+import RealmSwift
 
 protocol MoviesRepositoryProtocol {
     func getMovies() -> AnyPublisher<[MovieModel], Error>
     func getNowPlaying() -> AnyPublisher<[MovieModel], Error>
     func searchMovie(name: String) -> AnyPublisher<[MovieModel], Error>
     func getDetail(id: Int) -> AnyPublisher<DetailModel, Error>
+//    func addMovies(from movie: [MovieEntity]) -> AnyPublisher<Bool, Error>
 }
 
 final class MoviesRepository: NSObject {
@@ -20,7 +22,8 @@ final class MoviesRepository: NSObject {
     
     fileprivate let remote: RemoteDataSource
     fileprivate let local: LocalDataSource
-        
+    var realm: Realm?
+    
     private init(remote: RemoteDataSource, local: LocalDataSource) {
         self.remote = remote
         self.local = local
@@ -51,19 +54,28 @@ extension MoviesRepository: MoviesRepositoryProtocol {
     }
     
     func getDetail(id: Int) -> AnyPublisher<DetailModel, Error> {
-        return self.local.getDetail(id: id)
-            .flatMap { result -> AnyPublisher<DetailModel, Error> in
-                if id != result.id {
-                    return self.remote.getMovieDetail(id: id)
-                        .map { MovieMappper.mapDetailResponseToDomain(input: $0)}
-                        .eraseToAnyPublisher()
-                } else {
-                    return self.local.getDetail(id: id)
-                        .map { MovieMappper.mapDetailEntityToDomain(input: $0)}
-                        .eraseToAnyPublisher()
-                }
-            }
-            .eraseToAnyPublisher()
+//        return self.remote.getMovieDetail(id: id)
+//            .map{ MovieMappper.mapDetailResponseToDomain(input: $0)}
+//            .eraseToAnyPublisher()
+        
+                    let result = self.realm?.object(ofType: MovieEntity.self, forPrimaryKey: "id")
+        
+                    if id != result?.id {
+                        print("Belum ada ID")
+                        return self.remote.getMovieDetail(id: id)
+                            .map{ MovieMappper.mapDetailResponseToDomain(input: $0) }
+                            .eraseToAnyPublisher()
+                    } else {
+                        print("Sudah ada")
+                        return self.local.getDetail(id: id)
+                            .map{ MovieMappper.mapDetailEntityToDomain(input: $0) }
+                            .eraseToAnyPublisher()
+                    }
+
     }
+    
+//    func addMovies(from movie: [MovieEntity]) -> AnyPublisher<Bool, Error> {
+//        <#code#>
+//    }
     
 }

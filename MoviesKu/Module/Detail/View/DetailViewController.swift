@@ -7,9 +7,17 @@
 
 import UIKit
 import Combine
+import SDWebImage
 
 class DetailViewController: UIViewController {
-
+    @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var moviePoster: UIImageView!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var movieTagline: UILabel!
+    @IBOutlet weak var movieScore: UILabel!
+    @IBOutlet weak var movieOverview: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
     var detailPresenter: DetailPresenter?
     var id: Int?
     
@@ -22,6 +30,21 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         getDetail()
         // Do any additional setup after loading the view.
+    }
+    @IBAction func favoriteTapped(_ sender: UIButton) {
+    }
+    
+    func imageSetUp() {
+        backgroundImage.sd_setImage(with: URL(string: Endpoints.Gets.getImageURL(url: detail?.image ?? "").url))
+        moviePoster.sd_setImage(with: URL(string: Endpoints.Gets.getImageURL(url: detail?.image ?? "").url))
+        BlurImageView.init().makeBlur(for: backgroundImage)
+    }
+    
+    func setUp() {
+        movieTitle.text = detail?.title ?? ""
+        movieTagline.text = detail?.tagline ?? ""
+        movieScore.text = String(detail?.average ?? 0.0)
+        movieOverview.text = detail?.overview ?? ""
     }
     
     func getDetail() {
@@ -40,7 +63,8 @@ class DetailViewController: UIViewController {
                 }
             }, receiveValue: { result in
                 self.detail = result
-                print("id: \(result)")
+                self.setUp()
+                self.imageSetUp()
             })
             .store(in: &cancellables)
     }

@@ -12,4 +12,6 @@ struct DetailModel {
     let title: String
     let image: String
     let average: Double
+    let overview: String
+    let tagline: String
 }
