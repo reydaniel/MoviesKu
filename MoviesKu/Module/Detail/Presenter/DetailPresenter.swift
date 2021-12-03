@@ -19,4 +19,8 @@ class DetailPresenter {
     func getDetail(id: Int) -> AnyPublisher<DetailModel, Error> {
         return detailUseCase.getDetail(id: id)
     }
+    
+    func addMovies(id: Int) -> AnyPublisher<Bool, Error> {
+        return detailUseCase.addMovies(id: id)
+    }
 }

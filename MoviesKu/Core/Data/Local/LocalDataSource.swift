@@ -11,8 +11,8 @@ import RealmSwift
 
 protocol LocalDataSourceProtocol {
     func getMovies() -> AnyPublisher<[MovieEntity], Error>
-    func addMovies(from movie: [MovieEntity]) -> AnyPublisher<Bool, Error>
     func getDetail(id: Int) -> AnyPublisher<MovieEntity, Error>
+    func addMovies(id: Int, from movie: MovieEntity) -> AnyPublisher<Bool, Error>
 }
 
 final class LocalDataSource: NSObject {
@@ -42,16 +42,21 @@ extension LocalDataSource: LocalDataSourceProtocol {
         }.eraseToAnyPublisher()
     }
     
-    func addMovies(from movie: [MovieEntity]) -> AnyPublisher<Bool, Error> {
+    func addMovies(id: Int, from movie: MovieEntity) -> AnyPublisher<Bool, Error> {
         return Future<Bool, Error> { completion in
             if let realm = self.realm {
+                let result = realm.object(ofType: MovieEntity.self, forPrimaryKey: "id")
                 do {
-                    try realm.write {
-                        for movie in movie {
+                    try realm.write({
+                        if id != result?.id {
+                            realm.add(movie)
+                            print("Add New ID")
+                        } else {
                             realm.add(movie, update: .all)
+                            print("ID Updated")
                         }
                         completion(.success(true))
-                    }
+                    })
                 } catch {
                     completion(.failure(DatabaseError.requestfailed))
                 }

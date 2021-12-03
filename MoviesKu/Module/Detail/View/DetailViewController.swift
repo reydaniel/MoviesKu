@@ -29,9 +29,12 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getDetail()
-        // Do any additional setup after loading the view.
     }
+    
     @IBAction func favoriteTapped(_ sender: UIButton) {
+        if let id = id {
+            detailPresenter?.addMovies(id: id)
+        }
     }
     
     func imageSetUp() {
@@ -56,10 +59,8 @@ class DetailViewController: UIViewController {
                 switch completion {
                 case .failure:
                     self.errorMessage = String(describing: completion)
-                    print("fail")
                 case .finished:
                     self.loadingState = false
-                    print("succ")
                 }
             }, receiveValue: { result in
                 self.detail = result
@@ -68,17 +69,4 @@ class DetailViewController: UIViewController {
             })
             .store(in: &cancellables)
     }
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

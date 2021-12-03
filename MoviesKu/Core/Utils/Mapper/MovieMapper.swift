@@ -25,13 +25,24 @@ final class MovieMappper {
                            overview: detailResponse.overview ?? "No Overview...",
                            tagline: detailResponse.tagline ?? "No Tagline here")
     }
+
+    static func mapMovieEntityToDomain(input movieEntity: [MovieEntity]) -> [MovieModel] {
+        return movieEntity.map { result in
+            return MovieModel (id: result.id,
+                               title: result.title,
+                               image: result.image,
+                               average: result.average)
+        }
+    }
     
     static func mapDetailResponseToEntity(input movieResponse: DetailResponse) -> MovieEntity {
         let movieEntity = MovieEntity()
         movieEntity.id = movieResponse.id
-        movieEntity.title = movieResponse.title ?? ""
-        movieEntity.image = movieResponse.image ?? ""
+        movieEntity.title = movieResponse.title ?? "No Title"
+        movieEntity.image = movieResponse.image ?? "No Image"
         movieEntity.average = movieResponse.average ?? 0.0
+        movieEntity.tagline = movieResponse.tagline ?? "No Tagline Here"
+        movieEntity.overview = movieResponse.overview ?? "No Overview..."
         return movieEntity
     }
     

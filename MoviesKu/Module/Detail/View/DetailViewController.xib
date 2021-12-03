@@ -82,10 +82,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSb-tQ-GOX">
-                                    <rect key="frame" x="144.5" y="610.5" width="125" height="40"/>
+                                    <rect key="frame" x="132" y="610.5" width="150" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="YQH-wf-kdC"/>
-                                        <constraint firstAttribute="width" constant="125" id="b9E-sm-EjI"/>
+                                        <constraint firstAttribute="width" constant="150" id="b9E-sm-EjI"/>
                                     </constraints>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="filled" title="Add to Favorite"/>

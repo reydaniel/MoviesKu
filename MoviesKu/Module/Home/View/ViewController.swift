@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 import SDWebImage
+import SwiftUI
 
 class ViewController: UIViewController {
     @IBOutlet weak var nowPlayingCell: UICollectionView!
@@ -60,14 +61,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let id = nowPlaying[indexPath.item].id
         router.makeDetail(id: id, navigationController: navigationController)
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "homeToDetail" {
-//            let destination = segue.destination as? DetailViewController
-//            let row = (sender as! NSIndexPath).row
-//            destination?.id = nowPlaying[row].id
-//        }
-//    }
 
 }
 
@@ -86,6 +79,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             return UITableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let id = popular[indexPath.row].id
+        router.makeDetail(id: id, navigationController: navigationController)
     }
 }
 
