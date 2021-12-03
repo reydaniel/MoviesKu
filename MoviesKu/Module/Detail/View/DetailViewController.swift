@@ -32,9 +32,10 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func favoriteTapped(_ sender: UIButton) {
-        if let id = id {
-            detailPresenter?.addMovies(id: id)
+        guard let id = id else {
+            return
         }
+        detailPresenter?.addMovies(id: id)
     }
     
     func imageSetUp() {

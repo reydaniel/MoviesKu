@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		430AAE19274FD7AE00305229 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430AAE18274FD7AE00305229 /* FavoriteViewController.swift */; };
 		430AAE1B274FD81E00305229 /* FavoriteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430AAE1A274FD81E00305229 /* FavoriteNavigationController.swift */; };
+		433C2CAB275A407900686D8D /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C2CAA275A407900686D8D /* EmptyTableView.swift */; };
 		433FDD40274E372600E5F866 /* NowPlayingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433FDD3E274E372600E5F866 /* NowPlayingViewCell.swift */; };
 		433FDD41274E372600E5F866 /* NowPlayingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 433FDD3F274E372600E5F866 /* NowPlayingViewCell.xib */; };
 		433FDD45274E4B4200E5F866 /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433FDD44274E4B4200E5F866 /* TabBarRouter.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		430AAE18274FD7AE00305229 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		430AAE1A274FD81E00305229 /* FavoriteNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNavigationController.swift; sourceTree = "<group>"; };
+		433C2CAA275A407900686D8D /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
 		433FDD3E274E372600E5F866 /* NowPlayingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewCell.swift; sourceTree = "<group>"; };
 		433FDD3F274E372600E5F866 /* NowPlayingViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NowPlayingViewCell.xib; sourceTree = "<group>"; };
 		433FDD44274E4B4200E5F866 /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				43FD288127579A8D00D4DD61 /* BlurImageView.swift */,
+				433C2CAA275A407900686D8D /* EmptyTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				43B5CF4D274B527B00E419DC /* LocalDataSource.swift in Sources */,
 				43B5CF59274BEE8600E419DC /* Injection.swift in Sources */,
 				43C549BB2746A74B00C3E95D /* SceneDelegate.swift in Sources */,
+				433C2CAB275A407900686D8D /* EmptyTableView.swift in Sources */,
 				43B5CF55274B77E100E419DC /* HomeInteractor.swift in Sources */,
 				43FD2885275921FC00D4DD61 /* FavoriteCell.swift in Sources */,
 				433FDD40274E372600E5F866 /* NowPlayingViewCell.swift in Sources */,

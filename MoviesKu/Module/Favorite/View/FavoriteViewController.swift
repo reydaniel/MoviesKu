@@ -28,6 +28,11 @@ class FavoriteViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if favorite.isEmpty {
+            EmptyTableView.init().showEmptyText(tableView: tableView)
+        } else {
+            tableView.backgroundView = nil
+        }
         return favorite.count
     }
     
