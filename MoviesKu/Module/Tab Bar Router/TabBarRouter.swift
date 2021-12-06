@@ -5,7 +5,6 @@
 //  Created by ReyDaniel on 24/11/21.
 //
 
-import Foundation
 import UIKit
 
 class TabBarRouter {
@@ -35,6 +34,7 @@ class TabBarRouter {
         guard let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as? FavoriteViewController else {
             return UIViewController()
         }
+        favoriteVC.presenter = FavoritePresenter(favUseCase: Injection.init().provideFavorite())
         return favoriteVC
     }
     
@@ -46,11 +46,26 @@ class TabBarRouter {
         return favoriteNC
     }
     
+    func makeProfileView() -> UIViewController {
+        guard let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController else {
+            return UIViewController()
+        }
+        return profileVC
+    }
+    
+    func makeProfileNavigation() -> UINavigationController {
+        guard let profileNC = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController") as? ProfileNavigationController else {
+            return ProfileNavigationController()
+        }
+        profileNC.viewControllers = [makeProfileView()]
+        return profileNC
+    }
+    
     func makeTabBar() -> TabBarViewController {
         guard let tabBarVC = storyboard.instantiateViewController(withIdentifier: "tabbar") as? TabBarViewController else {
             return TabBarViewController()
         }
-        tabBarVC.viewControllers = [makeHomeNavigation(), makeFavoriteNavigation()]
+        tabBarVC.viewControllers = [makeHomeNavigation(), makeFavoriteNavigation(), makeProfileNavigation()]
         return tabBarVC
     }
     

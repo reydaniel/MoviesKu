@@ -5,7 +5,6 @@
 //  Created by ReyDaniel on 02/12/21.
 //
 
-import Foundation
 import Combine
 
 protocol FavoriteUseCase {

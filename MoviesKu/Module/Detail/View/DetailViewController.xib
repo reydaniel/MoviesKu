@@ -81,14 +81,35 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSb-tQ-GOX">
-                                    <rect key="frame" x="132" y="610.5" width="150" height="40"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DSb-tQ-GOX">
+                                    <rect key="frame" x="117" y="610.5" width="180" height="44"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="YQH-wf-kdC"/>
-                                        <constraint firstAttribute="width" constant="150" id="b9E-sm-EjI"/>
+                                        <constraint firstAttribute="height" constant="44" id="YQH-wf-kdC"/>
+                                        <constraint firstAttribute="width" constant="180" id="b9E-sm-EjI"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" title="Add to Favorite"/>
+                                    <color key="tintColor" systemColor="tintColor"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal">
+                                        <attributedString key="attributedTitle">
+                                            <fragment content="Add to Favorite">
+                                                <attributes>
+                                                    <font key="NSFont" size="12" name="Helvetica"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="8" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <color key="titleColor" systemColor="systemBlueColor"/>
+                                    </state>
+                                    <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system">
+                                        <attributedString key="attributedTitle">
+                                            <fragment content="Add to Favorite">
+                                                <attributes>
+                                                    <font key="NSFont" size="12" name="SFProText-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="12" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                    </buttonConfiguration>
                                     <connections>
                                         <action selector="favoriteTapped:" destination="-1" eventType="touchUpInside" id="57H-Pf-c0x"/>
                                     </connections>
@@ -146,8 +167,15 @@
     </objects>
     <resources>
         <image name="face.smiling.fill" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

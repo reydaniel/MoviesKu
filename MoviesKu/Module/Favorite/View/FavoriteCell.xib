@@ -70,10 +70,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="Tdf-yT-lTM"/>
             <connections>
-                <outlet property="moviePoster" destination="VFX-41-cJz" id="hUv-of-wtQ"/>
-                <outlet property="movieRate" destination="kdd-Vg-2Ii" id="eK4-Aw-uOc"/>
-                <outlet property="movieRating" destination="kdd-Vg-2Ii" id="BT3-4V-eXO"/>
-                <outlet property="movieTitle" destination="RHT-Tu-tQe" id="o6d-Lt-Aqo"/>
+                <outlet property="moviePoster" destination="VFX-41-cJz" id="kQc-LR-0jh"/>
+                <outlet property="movieRating" destination="kdd-Vg-2Ii" id="Wa5-g5-AJc"/>
+                <outlet property="movieTitle" destination="RHT-Tu-tQe" id="dNF-1k-ay1"/>
             </connections>
             <point key="canvasLocation" x="243.47826086956525" y="84.375"/>
         </tableViewCell>

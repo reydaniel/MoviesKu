@@ -5,7 +5,6 @@
 //  Created by ReyDaniel on 03/12/21.
 //
 
-import Foundation
 import UIKit
 
 struct EmptyTableView {

@@ -23,4 +23,8 @@ class DetailPresenter {
     func addMovies(id: Int) -> AnyPublisher<Bool, Error> {
         return detailUseCase.addMovies(id: id)
     }
+    
+    func checkID(id: Int) -> Bool {
+        return detailUseCase.checkID(id: id)
+    }
 }

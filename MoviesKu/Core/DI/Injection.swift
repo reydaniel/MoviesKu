@@ -15,7 +15,7 @@ final class Injection: NSObject {
         let local: LocalDataSource = LocalDataSource.sharedInstance(realm)
         let remote: RemoteDataSource = RemoteDataSource.sharedInstance
         
-        return MoviesRepository.sharedInstance(remote, local)
+        return MoviesRepository.sharedInstance(remote, local, realm!)
     }
     
     func provideHome() -> HomeUseCase {
@@ -28,8 +28,13 @@ final class Injection: NSObject {
         return DetailInteractor(repository: repository)
     }
     
-    func provideDetail() -> FavoriteUseCase {
+    func provideFavorite() -> FavoriteUseCase {
         let repository = provideRepository()
         return FavoriteInteractor(repository: repository)
+    }
+    
+    func provideSearch() -> SearchUseCase {
+        let repository = provideRepository()
+        return SearchMovieInteractor(repository: repository)
     }
 }

@@ -5,7 +5,6 @@
 //  Created by ReyDaniel on 01/12/21.
 //
 
-import Foundation
 import UIKit
 
 struct BlurImageView {

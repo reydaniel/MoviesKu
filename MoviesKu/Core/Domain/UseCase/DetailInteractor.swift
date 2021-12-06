@@ -5,12 +5,12 @@
 //  Created by ReyDaniel on 30/11/21.
 //
 
-import Foundation
 import Combine
 
 protocol DetailUseCase {
     func getDetail(id: Int) -> AnyPublisher<DetailModel, Error>
     func addMovies(id: Int) -> AnyPublisher<Bool, Error>
+    func checkID(id: Int) -> Bool
 }
 
 class DetailInteractor: DetailUseCase {
@@ -26,5 +26,9 @@ class DetailInteractor: DetailUseCase {
     
     func addMovies(id: Int) -> AnyPublisher<Bool, Error> {
         return repository.addMovies(id: id)
+    }
+    
+    func checkID(id: Int) -> Bool {
+        return repository.checkID(id: id)
     }
 }

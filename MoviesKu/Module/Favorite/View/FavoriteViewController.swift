@@ -13,6 +13,7 @@ class FavoriteViewController: UITableViewController {
     
     
     var presenter: FavoritePresenter?
+    private let router = FavoriteRouter()
     private var errorMessage: String = ""
     private var loadingState: Bool = false
     private var cancellables: Set<AnyCancellable> = []
@@ -20,9 +21,14 @@ class FavoriteViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getFavorite()
+        
         
         favoriteTableView.register(UINib(nibName: "FavoriteCell", bundle: nil), forCellReuseIdentifier: "FavoriteViewCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getFavorite()
+        tabBarController?.tabBar.isHidden = false
     }
 
     // MARK: - Table view data source
@@ -47,6 +53,12 @@ class FavoriteViewController: UITableViewController {
             return UITableViewCell()
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let id = favorite[indexPath.row].id
+        router.makeDetail(id: id, navigationController: navigationController)
+        tabBarController?.tabBar.isHidden = true
+    }
 
 }
 
@@ -59,6 +71,7 @@ extension FavoriteViewController {
                 switch completion {
                 case .failure:
                     self.errorMessage = String(describing: completion)
+                    print(self.errorMessage)
                 case .finished:
                     self.loadingState = false
                 }

@@ -5,8 +5,6 @@
 //  Created by ReyDaniel on 20/11/21.
 //
 
-import Foundation
-
 struct DetailResponse: Decodable {
     let id: Int
     let title: String?

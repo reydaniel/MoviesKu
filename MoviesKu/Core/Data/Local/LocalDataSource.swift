@@ -13,6 +13,7 @@ protocol LocalDataSourceProtocol {
     func getMovies() -> AnyPublisher<[MovieEntity], Error>
     func getDetail(id: Int) -> AnyPublisher<MovieEntity, Error>
     func addMovies(id: Int, from movie: MovieEntity) -> AnyPublisher<Bool, Error>
+    func deleteMovies(id: Int) -> AnyPublisher<Bool, Error>
 }
 
 final class LocalDataSource: NSObject {
@@ -33,7 +34,6 @@ extension LocalDataSource: LocalDataSourceProtocol {
             if let realm = self.realm {
                 let movies: Results<MovieEntity> = {
                     realm.objects(MovieEntity.self)
-                        .sorted(byKeyPath: "title", ascending: true)
                 }()
                 completion(.success(movies.toArray(ofType: MovieEntity.self)))
             } else {
@@ -44,19 +44,12 @@ extension LocalDataSource: LocalDataSourceProtocol {
     
     func addMovies(id: Int, from movie: MovieEntity) -> AnyPublisher<Bool, Error> {
         return Future<Bool, Error> { completion in
-            if let realm = self.realm {
-                let result = realm.object(ofType: MovieEntity.self, forPrimaryKey: "id")
+            if let realms = self.realm {
                 do {
-                    try realm.write({
-                        if id != result?.id {
-                            realm.add(movie)
-                            print("Add New ID")
-                        } else {
-                            realm.add(movie, update: .all)
-                            print("ID Updated")
-                        }
-                        completion(.success(true))
-                    })
+                    try realms.write{
+                        realms.add(movie)
+                    }
+                    completion(.success(true))
                 } catch {
                     completion(.failure(DatabaseError.requestfailed))
                 }
@@ -79,6 +72,28 @@ extension LocalDataSource: LocalDataSourceProtocol {
             } else {
                 completion(.failure(DatabaseError.invalidInstance))
             }
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    func deleteMovies(id: Int) -> AnyPublisher<Bool, Error> {
+        return Future<Bool, Error> { completion in
+            if let realm = self.realm {
+                do {
+                    let movies: Results<MovieEntity> = {
+                        realm.objects(MovieEntity.self)
+                            .filter("id == \(id)")
+                    }()
+                    guard let item = movies.first else { return }
+                    try realm.write({
+                        realm.delete(item)
+                        print("deleted")
+                    })
+                } catch {
+                    completion(.failure(DatabaseError.requestfailed))
+                }
+            }
+            
         }
         .eraseToAnyPublisher()
     }
