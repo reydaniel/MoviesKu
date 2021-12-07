@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,11 +32,12 @@
                                     <constraint firstAttribute="height" constant="79" id="cZz-v2-Y1P"/>
                                     <constraint firstAttribute="width" constant="235" id="oLb-cl-h4M"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="awF-bp-4za" firstAttribute="leading" secondItem="iNE-bP-mh6" secondAttribute="leading" constant="8" id="17J-oN-kYY"/>
                             <constraint firstItem="awF-bp-4za" firstAttribute="top" secondItem="iNE-bP-mh6" secondAttribute="top" constant="8" id="CXy-vD-1AE"/>
@@ -63,4 +65,9 @@
             <point key="canvasLocation" x="283.33333333333337" y="196.54017857142856"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

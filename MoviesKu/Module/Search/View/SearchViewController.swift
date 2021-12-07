@@ -46,6 +46,7 @@ class SearchViewController: UITableViewController {
         if let cell = searchTableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as? SearchTableViewCell {
             let index = movieList[indexPath.row]
             cell.moviePoster.sd_setImage(with: URL(string: Endpoints.Gets.getImageURL(url: index.image).url))
+            cell.moviePoster.setCornerRadius(image: cell.moviePoster, radius: 8)
             cell.movieTitle.text = index.title
             cell.movieRating.text = String(index.average)
             return cell

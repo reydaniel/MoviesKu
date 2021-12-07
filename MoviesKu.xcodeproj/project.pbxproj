@@ -227,6 +227,13 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		43946BC0275E6B21003C1B8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		43A74F132748EC2A00E52D33 /* Response */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +333,7 @@
 			children = (
 				43C549B72746A74B00C3E95D /* MoviesKu */,
 				43C549B62746A74B00C3E95D /* Products */,
+				43946BC0275E6B21003C1B8E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -502,6 +510,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43C549C92746A74E00C3E95D /* Build configuration list for PBXNativeTarget "MoviesKu" */;
 			buildPhases = (
+				43D7FD37275E49E600DD71F8 /* ShellScript */,
 				43C549B12746A74B00C3E95D /* Sources */,
 				43C549B22746A74B00C3E95D /* Frameworks */,
 				43C549B32746A74B00C3E95D /* Resources */,
@@ -577,6 +586,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		43D7FD37275E49E600DD71F8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then  \nswiftlint\nelse  \necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		43C549B12746A74B00C3E95D /* Sources */ = {
@@ -773,6 +802,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MoviesKu/MoviesKu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D664R65Q2H;
@@ -790,9 +820,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.reydaniel.MoviesKu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -801,6 +832,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MoviesKu/MoviesKu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D664R65Q2H;
@@ -818,9 +850,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.reydaniel.MoviesKu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
