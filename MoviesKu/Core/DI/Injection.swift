@@ -15,7 +15,7 @@ final class Injection: NSObject {
         let local: LocalDataSource = LocalDataSource.sharedInstance(realm)
         let remote: RemoteDataSource = RemoteDataSource.sharedInstance
         
-        return MoviesRepository.sharedInstance(remote, local, realm!)
+        return MoviesRepository.sharedInstance(remote, local)
     }
     
     func provideHome() -> HomeUseCase {

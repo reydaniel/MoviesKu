@@ -14,6 +14,7 @@ protocol LocalDataSourceProtocol {
     func getDetail(id: Int) -> AnyPublisher<MovieEntity, Error>
     func addMovies(id: Int, from movie: MovieEntity) -> AnyPublisher<Bool, Error>
     func deleteMovies(id: Int) -> AnyPublisher<Bool, Error>
+    func checkID(id: Int) -> Bool
 }
 
 final class LocalDataSource: NSObject {
@@ -29,6 +30,25 @@ final class LocalDataSource: NSObject {
 }
 
 extension LocalDataSource: LocalDataSourceProtocol {
+    func checkID(id: Int) -> Bool {
+        var found = false
+        
+        if let realm = realm {
+            let movies: Results<MovieEntity> = {
+                realm.objects(MovieEntity.self)
+            }()
+            
+            let new = movies.toArray(ofType: MovieEntity.self)
+            for new in new {
+                if id == new.id {
+                    found = true
+                }
+            }
+        }
+        
+        return found
+    }
+    
     func getMovies() -> AnyPublisher<[MovieEntity], Error> {
         return Future<[MovieEntity], Error> { completion in
             if let realm = self.realm {

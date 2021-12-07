@@ -20,39 +20,24 @@ protocol MoviesRepositoryProtocol {
 }
 
 final class MoviesRepository: NSObject {
-    typealias MovieInstance = (RemoteDataSource, LocalDataSource, Realm) -> MoviesRepository
+    typealias MovieInstance = (RemoteDataSource, LocalDataSource) -> MoviesRepository
     
     fileprivate let remote: RemoteDataSource
     fileprivate let local: LocalDataSource
-    private let realm: Realm
     
-    private init(remote: RemoteDataSource, local: LocalDataSource, realm: Realm) {
+    private init(remote: RemoteDataSource, local: LocalDataSource) {
         self.remote = remote
         self.local = local
-        self.realm = realm
     }
     
-    static let sharedInstance: MovieInstance = { remoteRepository, localRepository, realmDatabase  in
-        return MoviesRepository(remote: remoteRepository, local: localRepository, realm: realmDatabase)
+    static let sharedInstance: MovieInstance = { remoteRepository, localRepository  in
+        return MoviesRepository(remote: remoteRepository, local: localRepository)
     }
 }
 
 extension MoviesRepository: MoviesRepositoryProtocol {
     func checkID(id: Int) -> Bool {
-        var found = false
-        
-        let movies: Results<MovieEntity> = {
-            realm.objects(MovieEntity.self)
-        }()
-        
-        let new = movies.toArray(ofType: MovieEntity.self)
-        for new in new {
-            if id == new.id {
-                found = true
-            }
-        }
-        
-        return found
+        return local.checkID(id: id)
     }
     
     func getMovies() -> AnyPublisher<[MovieModel], Error> {
