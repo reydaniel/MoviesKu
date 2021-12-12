@@ -38,9 +38,9 @@ extension LocalDataSource: LocalDataSourceProtocol {
                 realm.objects(MovieEntity.self)
             }()
             
-            let new = movies.toArray(ofType: MovieEntity.self)
-            for new in new {
-                if id == new.id {
+            let entityData = movies.toArray(ofType: MovieEntity.self)
+            for entityData in entityData {
+                if id == entityData.id {
                     found = true
                 }
             }

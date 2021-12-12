@@ -17,6 +17,8 @@
 		4300770F275D35940015C7C7 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4300770E275D35940015C7C7 /* SearchRouter.swift */; };
 		430AAE19274FD7AE00305229 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430AAE18274FD7AE00305229 /* FavoriteViewController.swift */; };
 		430AAE1B274FD81E00305229 /* FavoriteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430AAE1A274FD81E00305229 /* FavoriteNavigationController.swift */; };
+		4331C45D2760D19700B0FC5B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4331C45C2760D19700B0FC5B /* Realm */; };
+		4331C45F2760D19700B0FC5B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4331C45E2760D19700B0FC5B /* RealmSwift */; };
 		433C2CAB275A407900686D8D /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C2CAA275A407900686D8D /* EmptyTableView.swift */; };
 		433FDD40274E372600E5F866 /* NowPlayingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433FDD3E274E372600E5F866 /* NowPlayingViewCell.swift */; };
 		433FDD41274E372600E5F866 /* NowPlayingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 433FDD3F274E372600E5F866 /* NowPlayingViewCell.xib */; };
@@ -46,8 +48,6 @@
 		43C549C22746A74E00C3E95D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43C549C12746A74E00C3E95D /* Assets.xcassets */; };
 		43C549C52746A74E00C3E95D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C549C32746A74E00C3E95D /* LaunchScreen.storyboard */; };
 		43C549D52746A92700C3E95D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 43C549D42746A92700C3E95D /* Alamofire */; };
-		43C549D82746ACFE00C3E95D /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 43C549D72746ACFE00C3E95D /* Realm */; };
-		43C549DA2746ACFE00C3E95D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 43C549D92746ACFE00C3E95D /* RealmSwift */; };
 		43C549DD2746ADB400C3E95D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 43C549DC2746ADB400C3E95D /* SDWebImage */; };
 		43C549DF2746ADB400C3E95D /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 43C549DE2746ADB400C3E95D /* SDWebImageMapKit */; };
 		43D7FD11275DBB4800DD71F8 /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D7FD10275DBB4800DD71F8 /* RoundedImage.swift */; };
@@ -128,10 +128,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43C549DA2746ACFE00C3E95D /* RealmSwift in Frameworks */,
 				43C549DF2746ADB400C3E95D /* SDWebImageMapKit in Frameworks */,
-				43C549D82746ACFE00C3E95D /* Realm in Frameworks */,
 				43C549DD2746ADB400C3E95D /* SDWebImage in Frameworks */,
+				4331C45D2760D19700B0FC5B /* Realm in Frameworks */,
+				4331C45F2760D19700B0FC5B /* RealmSwift in Frameworks */,
 				43C549D52746A92700C3E95D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,7 +510,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43C549C92746A74E00C3E95D /* Build configuration list for PBXNativeTarget "MoviesKu" */;
 			buildPhases = (
-				43D7FD37275E49E600DD71F8 /* ShellScript */,
 				43C549B12746A74B00C3E95D /* Sources */,
 				43C549B22746A74B00C3E95D /* Frameworks */,
 				43C549B32746A74B00C3E95D /* Resources */,
@@ -522,10 +521,10 @@
 			name = MoviesKu;
 			packageProductDependencies = (
 				43C549D42746A92700C3E95D /* Alamofire */,
-				43C549D72746ACFE00C3E95D /* Realm */,
-				43C549D92746ACFE00C3E95D /* RealmSwift */,
 				43C549DC2746ADB400C3E95D /* SDWebImage */,
 				43C549DE2746ADB400C3E95D /* SDWebImageMapKit */,
+				4331C45C2760D19700B0FC5B /* Realm */,
+				4331C45E2760D19700B0FC5B /* RealmSwift */,
 			);
 			productName = MoviesKu;
 			productReference = 43C549B52746A74B00C3E95D /* MoviesKu.app */;
@@ -557,8 +556,8 @@
 			mainGroup = 43C549AC2746A74B00C3E95D;
 			packageReferences = (
 				43C549D32746A92700C3E95D /* XCRemoteSwiftPackageReference "Alamofire" */,
-				43C549D62746ACFE00C3E95D /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				43C549DB2746ADB400C3E95D /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				4331C45B2760D19700B0FC5B /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 43C549B62746A74B00C3E95D /* Products */;
 			projectDirPath = "";
@@ -586,26 +585,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		43D7FD37275E49E600DD71F8 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then  \nswiftlint\nelse  \necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		43C549B12746A74B00C3E95D /* Sources */ = {
@@ -881,17 +860,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4331C45B2760D19700B0FC5B /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = exactVersion;
+				version = 10.20.0;
+			};
+		};
 		43C549D32746A92700C3E95D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		43C549D62746ACFE00C3E95D /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-cocoa";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
@@ -908,20 +887,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4331C45C2760D19700B0FC5B /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4331C45B2760D19700B0FC5B /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		4331C45E2760D19700B0FC5B /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4331C45B2760D19700B0FC5B /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
 		43C549D42746A92700C3E95D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 43C549D32746A92700C3E95D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		43C549D72746ACFE00C3E95D /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 43C549D62746ACFE00C3E95D /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = Realm;
-		};
-		43C549D92746ACFE00C3E95D /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 43C549D62746ACFE00C3E95D /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = RealmSwift;
 		};
 		43C549DC2746ADB400C3E95D /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;

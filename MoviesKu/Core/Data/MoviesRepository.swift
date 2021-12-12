@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import RealmSwift
 
 protocol MoviesRepositoryProtocol {
     func getMovies() -> AnyPublisher<[MovieModel], Error>

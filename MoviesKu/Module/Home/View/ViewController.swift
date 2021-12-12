@@ -8,7 +8,6 @@
 import UIKit
 import Combine
 import SDWebImage
-import SwiftUI
 
 class ViewController: UIViewController {
     @IBOutlet weak var nowPlayingCell: UICollectionView!
